@@ -1,0 +1,32 @@
+{
+  "name": "gulp-tinypng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnnyGoo/gulp-tinypng.git"
+  },
+  "keywords": [
+    "tinypng"
+  ],
+  "author": "johnny chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnnyGoo/gulp-tinypng/issues"
+  },
+  "homepage": "https://github.com/johnnyGoo/gulp-tinypng#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-tinify": "^1.0.2",
+    "moment": "^2.20.1",
+    "pretty-bytes": "^4.0.2",
+    "tinify": "^1.5.0"
+  },
+  "devDependencies": {
+    "gulp-util": "^3.0.8"
+  }
+}
