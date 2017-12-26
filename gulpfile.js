@@ -3,8 +3,6 @@ var tinify = require('./index');
 var moment = require('moment');
 var keys=require('./keys');
 
-
-
 var fs = require('fs');
 var file = 'cache.json';
 var fileData;

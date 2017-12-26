@@ -52,7 +52,10 @@ function tinypng(apiKey, file) {
                     if(err){
                         cb(null, file);
                     }else{
-                        fs.unlink(file.path);
+                        fs.unlink(file.path,function (error) {
+
+
+                        });
                         file.contents = resultData;
                         gutil.log('gulp-tinypng: ', gutil.colors.green('✔ ') + file.relative + ' (saved ' +
                             prettyBytes(prevLength - resultData.length) + ' - ' + ((1 - resultData.length / prevLength) * 100).toFixed(0) + '%)');
