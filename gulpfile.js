@@ -57,7 +57,7 @@ function getKey() {
 }
 
 gulp.task('tinify', function () {
-    gulp.src('./img/*')
+    gulp.src('./img/**/*.png')
         .pipe(tinify(getKey))
         .pipe(gulp.dest('dist'))
         .on('end', function () {
