@@ -7,6 +7,7 @@ var fs = require('fs');
 var file = 'cache.json';
 var fileData;
 const MAX_COUNT_PER_KEY = 500;
+var b='cc';
 function initData() {
     return {keys: [], currentKey: 0, datetime: moment().subtract(-1, 'months').format()};
 }
