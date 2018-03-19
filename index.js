@@ -11,7 +11,7 @@ var fs          = require('fs'),
 
 const PLUGIN_NAME = 'gulp-tinyimg';
 
-function tinypng(apiKey, file) {
+function tinypng(apiKey, limitReached) {
     var validExtensions = ['.png', '.jpg', '.jpeg'];
 
     if(!apiKey) {
@@ -38,6 +38,7 @@ function tinypng(apiKey, file) {
         function tiny(contents,retry) {
             tinify.key=apiKey();
             tinify.fromBuffer(contents).toBuffer(function(err, resultData) {
+                console.log('limitReached');
                 if (err instanceof tinify.AccountError) {
                     console.log("The error message is: " + err.message);
                     if(retry){

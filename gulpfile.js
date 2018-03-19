@@ -39,6 +39,12 @@ for (var i = 0; i < keys.length; i++) {
 }
 
 
+function limitReached(key) {
+
+    
+}
+
+
 function getKey() {
     var keyobj = fileData.keys[fileData.currentKey];
     if (keyobj.count > 0) {
@@ -58,7 +64,7 @@ function getKey() {
 
 gulp.task('tinify', function () {
     gulp.src('./img/**/*')
-        .pipe(tinify(getKey))
+        .pipe(tinify(getKey,limitReached))
         .pipe(gulp.dest('dist'))
         .on('end', function () {
             //处理完成之后 保存缓存文件
