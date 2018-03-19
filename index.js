@@ -36,16 +36,26 @@ function tinypng(apiKey, limitReached) {
         }
         var prevLength = file.contents.length;
         function tiny(contents,retry) {
-            tinify.key=apiKey();
+            var keycode=apiKey();
+            tinify.key=keycode;
             tinify.fromBuffer(contents).toBuffer(function(err, resultData) {
-                console.log('limitReached');
+
                 if (err instanceof tinify.AccountError) {
-                    console.log("The error message is: " + err.message);
-                    if(retry){
-                    tiny(contents,false);
-                    }else{
-                        cb(null, file);
+                  //  console.log("The error message is: " + err.message);
+
+                    if(err.message.indexOf('HTTP 429/TooManyRequests')>0){
+                        gutil.log('limit reached: ', gutil.colors.red('✖ ') + ' key:'+keycode);
+                        limitReached(keycode);
+                        tiny(contents,true);
+                    }else {
+                        console.log("The error message is: " + err.message);
+                        if(retry){
+                            tiny(contents,false);
+                        }else{
+                            cb(null, file);
+                        }
                     }
+
                     // Verify your API key and account limit.
                 }  else {
                     // Something else went wrong, unrelated to the Tinify API.

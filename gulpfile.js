@@ -39,8 +39,14 @@ for (var i = 0; i < keys.length; i++) {
 }
 
 
-function limitReached(key) {
-
+function limitReached(keycode) {
+    for (var i = 0; i < fileData.keys.length; i++) {
+        var keyobj = fileData.keys[i];
+        if (keyobj.key === keycode) {
+            keyobj.count=0;
+            return true;
+        }
+    }
     
 }
 
